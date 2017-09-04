@@ -1,0 +1,19 @@
+<h1>投稿一覧</h1>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th></th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+    <td><%= link_to'詳細を確認する',blog_path(blog.id) %></td>
+    <td><%= link_to'編集する',edit_blog_path(blog.id)%></td>
+    <td><%= link_to'削除する',blog_path(blog.id),data: {confirm: '本当に削除していいですか？'},method: :delete%></td><!--link_toメソッドはデフォがGETメソッドのため、deleteを指定する-->
+  </tr>
+<% end %>
+</table>
+<%= link_to'新規投稿',new_blog_path %>
+    
