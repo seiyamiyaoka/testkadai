@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>BlogappExam</title>
     <%= csrf_meta_tags %>
@@ -8,7 +8,40 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="<%= "#{controller.controller_name}" %>">
+        <header>
+          <nav class="navbar navbar-inverse"><!--inverseで黒背景ベースに-->
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+                  <span class="sr-only">Bootstrap</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button
+                <%= link_to "Log Your Life", '/', class: 'navbar-brand' %>
+                <a class="bavbar-brand">
+                  <%= image_tag("/assets/smile_face.png", :class => "top_menu_img") %>
+                </a>
+              </div>
+              <div id="gnavi" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href="">Top</a></li>
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Login</a></li>
+                  <li><%= link_to"New", new_blog_path %></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
     <%= yield %>
+        <footer class="footer">
+          <div class="footer_container">
+          <div class="footer_msg">
+            <p>Back to Top</p>
+          </div>
+         </div>
+        </footer>
   </body>
 </html>

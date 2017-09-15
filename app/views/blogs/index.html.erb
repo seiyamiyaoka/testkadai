@@ -1,19 +1,26 @@
-<h1>投稿一覧</h1>
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th></th>
-  </tr>
 
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= link_to'詳細を確認する',blog_path(blog.id) %></td>
-    <td><%= link_to'編集する',edit_blog_path(blog.id)%></td>
-    <td><%= link_to'削除する',blog_path(blog.id),data: {confirm: '本当に削除していいですか？'},method: :delete%></td><!--link_toメソッドはデフォがGETメソッドのため、deleteを指定する-->
-  </tr>
-<% end %>
-</table>
-<%= link_to'新規投稿',new_blog_path %>
-    
+<%= stylesheet_link_tag "css/index", :media => "all" %>
+<div class="index">
+  <div class="index_box">
+    <h3>投稿一覧</h3>
+    <div class="index_contents row">
+      <% @blogs.each do |blog| %>
+      <div class="index_content col-sm-3">
+        <h4><%= blog.title %></h4>
+        <p><%= blog.content %></p>
+        <div class="index_fnc_btn clearfix">
+          <%= link_to blog_path(blog.id),class: 'btn btn-info' do %>
+          <span class="glyphicon glyphicon-zoom-in"></span>詳細
+          <% end %>
+          <%= link_to edit_blog_path(blog.id),class: 'btn btn-warning' do %>
+          <span class="glyphicon glyphicon-edit"></span>編集
+          <% end %>
+          <%= link_to blog_path(blog.id),class: 'btn btn-danger',data: {confirm: '本当に削除していいですか？'},mehtod: :delete do %>
+          <span class="glyphicon glyphicon-trash"></span>削除
+          <% end %>
+        </div>
+      </div>
+      <% end %><!--@blogsからレコードを取り出すeach文のend-->
+    </div>
+  </div>
+</div>

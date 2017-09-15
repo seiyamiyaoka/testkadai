@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "css/form" , :media => "all" %>
+<div class="new_log">
 <%= form_with(model: @blog,local: true) do |form| %>
  <%if @blog.errors.any? %>
      <div id="error_explanation">
@@ -18,6 +20,9 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
 </div>
-<%= form.submit %><br>
+<div class="form_fnc_btn">
+<%= form.submit class: 'btn btn-primary btn-lg active' %>
 <%= link_to'投稿一覧表示',blogs_path %>
+</div>
 <%end%>
+</div>

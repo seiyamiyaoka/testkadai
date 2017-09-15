@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get '/blogs', to:'blogs#index'
+  
+  get '/', to:'tops#top'
   resources:blogs
 end
