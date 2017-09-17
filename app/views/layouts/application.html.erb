@@ -9,6 +9,7 @@
   </head>
 
   <body class="<%= "#{controller.controller_name}" %>">
+    <div id="container">
         <header>
           <nav class="navbar navbar-inverse"><!--inverseで黒背景ベースに-->
             <div class="container-fluid">
@@ -35,7 +36,9 @@
             </div>
           </nav>
         </header>
+        <div class="container_box">
     <%= yield %>
+        </div>
         <footer class="footer">
           <div class="footer_container">
           <div class="footer_msg">
@@ -43,5 +46,6 @@
           </div>
          </div>
         </footer>
+      </div>
   </body>
 </html>

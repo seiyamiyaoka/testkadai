@@ -13,6 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   height: 100%;
+ }
+
+ #container {
+   width: 100%;
+   position: relative;
+   height: auto !important;
+   height: 100%;
+   min-height: 100%;
+ }
+.container_box {
+  padding-bottom: 100px;
+}
  li {
    list-style: none;
  }
@@ -37,7 +52,7 @@
   color: #99979c;
   text-align: center;
   background-color: #2a2730;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 100px;
